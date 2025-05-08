@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Cat Tavern - A Magical Typing Adventure</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: system-ui, -apple-system, "SF Pro", sans-serif;
+            background-color: #f5efe7;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d8c9b2' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 导航栏 */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 22px;
+            font-weight: 600;
+            color: #7b5c3d;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: #7b5c3d;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 16px;
+        }
+        
+        .nav-links a:hover {
+            color: #e67e22;
+        }
+        
+        /* 英雄区域 */
+        .hero {
+            background: linear-gradient(135deg, #ffebcc 0%, #ffdaa3 100%);
+            border-radius: 24px;
+            margin: 40px 0;
+            padding: 60px 40px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(180, 142, 90, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23e6bc84' fill-opacity='0.2' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h2 {
+            font-size: 48px;
+            font-weight: 700;
+            color: #7b5c3d;
+            margin-bottom: 15px;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            color: #6d5741;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #e67e22;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 12px rgba(230, 126, 34, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(230, 126, 34, 0.4);
+        }
+        
+        /* 游戏框架 */
+        .game-section {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+            padding: 40px;
+            margin: 40px 0;
+        }
+        
+        .game-embed {
+            position: relative;
+            padding-bottom: 56.25%;
+            background: #f8f9fa;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .game-embed iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* 特性部分 */
+        .features-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 32px;
+            color: #e67e22;
+            margin-bottom: 15px;
+        }
+        
+        .feature-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .feature-card p {
+            color: #666;
+            font-size: 16px;
+        }
+        
+        /* 关于部分 */
+        .about-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .about-image {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-content h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        
+        .about-content p {
+            color: #555;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        
+        /* 页脚 */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 60px 0 30px;
+            margin-top: 60px;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #e67e22;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ecf0f1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #e67e22;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bdc3c7;
+            font-size: 14px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .about-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h2 {
+                font-size: 36px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+        
+        /* 猫咪图标 SVG */
+        .cat-svg {
+            width: 36px;
+            height: 36px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg class="cat-svg" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 3C13.5817 3 10 6.58172 10 11V15C8.89543 15 8 15.8954 8 17V21C8 22.1046 8.89543 23 10 23H10.1037C10.5486 27.3923 14.0393 31 18 31C21.9607 31 25.4514 27.3923 25.8964 23H26C27.1046 23 28 22.1046 28 21V17C28 15.8954 27.1046 15 26 15V11C26 6.58172 22.4183 3 18 3Z" fill="#E67E22"/>
+                        <path d="M14 14C15.1046 14 16 13.1046 16 12C16 10.8954 15.1046 10 14 10C12.8954 10 12 10.8954 12 12C12 13.1046 12.8954 14 14 14Z" fill="#FFF"/>
+                        <path d="M22 14C23.1046 14 24 13.1046 24 12C24 10.8954 23.1046 10 22 10C20.8954 10 20 10.8954 20 12C20 13.1046 20.8954 14 22 14Z" fill="#FFF"/>
+                        <path d="M14.5 18.5C14.5 18.5 16 20 18 20C20 20 21.5 18.5 21.5 18.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M9 11C9 11 5 7 3 8C1 9 5 13.5 7 14.5" stroke="#E67E22" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M27 11C27 11 31 7 33 8C35 9 31 13.5 29 14.5" stroke="#E67E22" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <h1>Happy Cat Tavern</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#game">Game</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="container">
+        <div class="hero">
+            <div class="hero-content">
+                <h2>Happy Cat Tavern</h2>
+                <p>Welcome to the magical cat tavern, where you can manage your own mystical tavern, craft enchanted beverages, meet adorable feline customers, and improve your typing skills!</p>
+                <a href="#game" class="cta-button">Start Playing</a>
+            </div>
+        </div>
+
+        <!-- Game Embed Section -->
+        <div class="game-section" id="game">
+            <div class="game-embed">
+                <iframe src="https://itch.io/embed/1287766">
+                    <a href="https://couriercatstudio.itch.io/happy-cat-tavern">
+                        Happy Cat Tavern: Typing Challenge by Courier Cat Studio
+                    </a>
+                </iframe>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <h2 style="text-align: center; font-size: 32px; color: #2c3e50; margin-bottom: 30px;" id="features">Game Features</h2>
+        <div class="features-section">
+            <div class="feature-card">
+                <div class="feature-icon">🏠</div>
+                <h3>Manage Your Magical Tavern</h3>
+                <p>Create your own unique cat tavern and provide a cozy place for various feline customers.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🧪</div>
+                <h3>Craft Magical Beverages</h3>
+                <p>Collect ingredients and brew magical drinks to satisfy the special requests of your cat customers.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⌨️</div>
+                <h3>Improve Your Typing Skills</h3>
+                <p>Naturally enhance your typing speed and accuracy while having fun in the game.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">😺</div>
+                <h3>Meet Adorable Cats</h3>
+                <p>Interact with cats of various personalities, unlock their stories and special quests.</p>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <div class="about-section" id="about">
+            <div>
+                <svg width="100%" height="auto" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="400" height="300" rx="20" fill="#FFF5E6"/>
+                    <rect x="50" y="50" width="300" height="200" rx="10" fill="#FFE2B6"/>
+                    <circle cx="200" cy="150" r="80" fill="#FFC170"/>
+                    <path d="M160 130C170 130 170 120 180 120C190 120 190 130 200 130C210 130 210 120 220 120C230 120 230 130 240 130" stroke="#7B5C3D" stroke-width="6" stroke-linecap="round"/>
+                    <circle cx="160" cy="110" r="10" fill="#7B5C3D"/>
+                    <circle cx="240" cy="110" r="10" fill="#7B5C3D"/>
+                    <path d="M180 170C180 170 190 180 200 180C210 180 220 170 220 170" stroke="#7B5C3D" stroke-width="6" stroke-linecap="round"/>
+                    <path d="M150 90C150 90 120 70 110 90C100 110 130 100 140 105" stroke="#E67E22" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M250 90C250 90 280 70 290 90C300 110 270 100 260 105" stroke="#E67E22" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <div class="about-content">
+                <h2>About Happy Cat Tavern</h2>
+                <p>Happy Cat Tavern is a casual game that combines typing practice with tavern management simulation. Set in a world full of magic, you'll serve as a tavern owner, providing services to all kinds of cat customers.</p>
+                <p>Each visiting cat has their own unique preferences and stories. By interacting with them and providing services, you'll unlock more game content and storylines. Meanwhile, the typing challenge mechanism allows you to improve your typing skills while having fun.</p>
+                <p>Crafted with care by Courier Cat Studio, it's suitable for players of all ages, especially those who want to improve their typing skills in an enjoyable environment.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About the Game</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Game Features</a></li>
+                        <li><a href="#">Update Log</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Developers</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://couriercatstudio.itch.io/happy-cat-tavern">Courier Cat Studio</a></li>
+                        <li><a href="#">Team Introduction</a></li>
+                        <li><a href="#">Other Works</a></li>
+                        <li><a href="#">Contributors</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Discord</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Email</a></li>
+                        <li><a href="#">Submit Feedback</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Official Guide</a></li>
+                        <li><a href="#">Community Discussion</a></li>
+                        <li><a href="#">Player Creations</a></li>
+                        <li><a href="#">Recommended Links</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Courier Cat Studio | Happy Cat Tavern - A Magical Typing Adventure | All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
