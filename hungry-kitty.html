@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title data-i18n="hungry.title">🍽️ Hungry Kitty - Happy Cat Tavern</title>
+    <meta name="description" data-i18n-content="hungry.meta.description" content="Feed the hungry cat and watch it grow! Adorable cat feeding game where you collect food and take care of your virtual pet. Fun and relaxing gameplay.">
+    <meta name="keywords" content="hungry kitty, cat feeding game, pet care game, virtual pet, cat simulator, feeding game, cute cat, casual game, browser game">
+    <meta name="author" content="Happy Cat Tavern">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="en">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://happycattavern.com/hungry-kitty.html">
+    <meta property="og:title" data-i18n-content="hungry.title" content="🍽️ Hungry Kitty - Happy Cat Tavern">
+    <meta property="og:description" data-i18n-content="hungry.meta.description" content="Feed the hungry cat and watch it grow! Adorable cat feeding game where you collect food and take care of your virtual pet. Fun and relaxing gameplay.">
+    <meta property="og:image" content="https://happycattavern.com/images/hungry-kitty-og.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Happy Cat Tavern">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://happycattavern.com/hungry-kitty.html">
+    <meta property="twitter:title" data-i18n-content="hungry.title" content="🍽️ Hungry Kitty - Happy Cat Tavern">
+    <meta property="twitter:description" data-i18n-content="hungry.meta.description" content="Feed the hungry cat and watch it grow! Adorable cat feeding game where you collect food and take care of your virtual pet. Fun and relaxing gameplay.">
+    <meta property="twitter:image" content="https://happycattavern.com/images/hungry-kitty-twitter.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://happycattavern.com/hungry-kitty.html">
+    
+    <!-- Alternate Languages -->
+    <link rel="alternate" hreflang="en" href="https://happycattavern.com/hungry-kitty.html">
+    <link rel="alternate" hreflang="zh" href="https://happycattavern.com/hungry-kitty.html?lang=zh">
+    <link rel="alternate" hreflang="ko" href="https://happycattavern.com/hungry-kitty.html?lang=ko">
+    <link rel="alternate" hreflang="ja" href="https://happycattavern.com/hungry-kitty.html?lang=ja">
+    <link rel="alternate" hreflang="fr" href="https://happycattavern.com/hungry-kitty.html?lang=fr">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Game",
+        "name": "Hungry Kitty",
+        "description": "A delightful cat feeding game where you take care of a hungry kitten by collecting food and watching it grow. Perfect for cat lovers who enjoy casual pet simulation games.",
+        "url": "https://happycattavern.com/hungry-kitty.html",
+        "image": "https://happycattavern.com/images/hungry-kitty-screenshot.jpg",
+        "genre": ["Simulation", "Casual", "Pet Care"],
+        "gamePlatform": "Web Browser",
+        "operatingSystem": "Any",
+        "applicationCategory": "Game",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.7",
+            "ratingCount": "1120"
+        },
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "Happy Cat Tavern",
+            "url": "https://happycattavern.com/"
+        }
+    }
+    </script>
+    
+    <link rel="icon" type="image/x-icon" href="cat-game-master/icon.png">
+    <link rel="stylesheet" href="css/i18n.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: system-ui, -apple-system, "SF Pro", sans-serif;
+            background-color: #f5efe7;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 导航栏 */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 22px;
+            font-weight: 600;
+            color: #7b5c3d;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: #7b5c3d;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 16px;
+        }
+        
+        .nav-links a:hover {
+            color: #e67e22;
+        }
+        
+        .back-button {
+            background: #e67e22;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .back-button:hover {
+            background: #d35400;
+            transform: translateY(-2px);
+        }
+        
+        /* 游戏区域 */
+        .game-header {
+            background: linear-gradient(135deg, #ffebcc 0%, #ffdaa3 100%);
+            border-radius: 24px;
+            margin: 40px 0 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(180, 142, 90, 0.2);
+        }
+        
+        .game-header h1 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #7b5c3d;
+            margin-bottom: 10px;
+        }
+        
+        .game-header p {
+            font-size: 18px;
+            color: #6d5741;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .game-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .game-frame {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 12px;
+            background: #f8f9fa;
+        }
+        
+        .fullscreen-btn {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: #e67e22;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .fullscreen-btn:hover {
+            background: #d35400;
+            transform: translateY(-2px);
+        }
+        
+        .fullscreen-btn:active {
+            transform: translateY(0);
+        }
+        
+        /* 全屏状态样式 */
+        .game-container:fullscreen {
+            background: #000;
+            border-radius: 0;
+            padding: 0;
+        }
+        
+        .game-container:fullscreen .game-frame {
+            width: 100vw;
+            height: 100vh;
+            border-radius: 0;
+        }
+        
+        .game-container:fullscreen .fullscreen-btn {
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.7);
+        }
+        
+        .game-container:fullscreen .fullscreen-btn:hover {
+            background: rgba(0, 0, 0, 0.9);
+        }
+        
+        .instructions {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .instructions h3 {
+            color: #856404;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        .instructions ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .instructions li {
+            color: #856404;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .instructions li::before {
+            content: "🎮";
+            position: absolute;
+            left: 0;
+        }
+        
+        .cat-svg {
+            width: 36px;
+            height: 36px;
+        }
+        
+        @media (max-width: 768px) {
+            .game-frame {
+                height: 400px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg class="cat-svg" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 3C13.5817 3 10 6.58172 10 11V15C8.89543 15 8 15.8954 8 17V21C8 22.1046 8.89543 23 10 23H10.1037C10.5486 27.3923 14.0393 31 18 31C21.9607 31 25.4514 27.3923 25.8964 23H26C27.1046 23 28 22.1046 28 21V17C28 15.8954 27.1046 15 26 15V11C26 6.58172 22.4183 3 18 3Z" fill="#E67E22"/>
+                        <path d="M14 14C15.1046 14 16 13.1046 16 12C16 10.8954 15.1046 10 14 10C12.8954 10 12 10.8954 12 12C12 13.1046 12.8954 14 14 14Z" fill="#FFF"/>
+                        <path d="M22 14C23.1046 14 24 13.1046 24 12C24 10.8954 23.1046 10 22 10C20.8954 10 20 10.8954 20 12C20 13.1046 20.8954 14 22 14Z" fill="#FFF"/>
+                        <path d="M14.5 18.5C14.5 18.5 16 20 18 20C20 20 21.5 18.5 21.5 18.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M9 11C9 11 5 7 3 8C1 9 5 13.5 7 14.5" stroke="#E67E22" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M27 11C27 11 31 7 33 8C35 9 31 13.5 29 14.5" stroke="#E67E22" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <h1>Happy Cat Tavern</h1>
+            </div>
+            <ul class="nav-links">
+                <li>
+                    <div class="language-selector">
+                        <select id="languageSelect">
+                            <option value="zh">🇨🇳 中文</option>
+                            <option value="en">🇺🇸 English</option>
+                            <option value="ko">🇰🇷 한국어</option>
+                            <option value="ja">🇯🇵 日本語</option>
+                            <option value="fr">🇫🇷 Français</option>
+                        </select>
+                    </div>
+                </li>
+                <li><a href="index.html" class="back-button" data-i18n="nav.back">← Back to Games</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Game Header -->
+        <div class="game-header">
+            <h1 data-i18n="hungry.title">🍽️ Hungry Kitty</h1>
+            <p data-i18n="hungry.subtitle">Help the hungry cat eat all the food while avoiding the water. Remember, cats hate showers!</p>
+        </div>
+
+        <!-- Instructions -->
+        <div class="instructions">
+            <h3 data-i18n="hungry.howto.title">How to Play</h3>
+            <ul>
+                <li data-i18n="hungry.howto.start">Press <strong>S</strong> to start the game</li>
+                <li data-i18n="hungry.howto.move">Use <strong>←</strong> and <strong>→</strong> arrow keys to move the paddle</li>
+                <li data-i18n="hungry.howto.pause">Press <strong>P</strong> to pause/unpause the game</li>
+                <li data-i18n="hungry.howto.restart">Press <strong>R</strong> to restart when paused</li>
+                <li data-i18n="hungry.howto.goal">Help the cat eat all the food above without touching the water!</li>
+            </ul>
+        </div>
+
+        <!-- Game Container -->
+        <div class="game-container">
+            <iframe src="cat-game-master/index.html" class="game-frame"></iframe>
+            <button class="fullscreen-btn" data-i18n="common.fullscreen">Fullscreen</button>
+        </div>
+    </div>
+
+    <script src="js/i18n.js"></script>
+    <script>
+        // 初始化多语言系统
+        const i18n = new I18n();
+        i18n.init();
+        
+        // 全屏功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const fullscreenBtn = document.querySelector('.fullscreen-btn');
+            const gameContainer = document.querySelector('.game-container');
+            
+            fullscreenBtn.addEventListener('click', function() {
+                if (!document.fullscreenElement) {
+                    // 进入全屏
+                    gameContainer.requestFullscreen().then(() => {
+                        fullscreenBtn.innerHTML = '🗗 ' + i18n.t('common.exit-fullscreen');
+                    }).catch(err => {
+                        console.log('无法进入全屏模式:', err);
+                    });
+                } else {
+                    // 退出全屏
+                    document.exitFullscreen().then(() => {
+                        fullscreenBtn.innerHTML = '🗖 ' + i18n.t('common.fullscreen');
+                    });
+                }
+            });
+            
+            // 监听全屏状态变化
+            document.addEventListener('fullscreenchange', function() {
+                if (!document.fullscreenElement) {
+                    fullscreenBtn.innerHTML = '🗖 ' + i18n.t('common.fullscreen');
+                }
+            });
+            
+            // 初始化按钮文本
+            fullscreenBtn.innerHTML = '🗖 ' + i18n.t('common.fullscreen');
+        });
+    </script>
+</body>
+</html> 

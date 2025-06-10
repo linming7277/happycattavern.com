@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desktop Pet Cat - 使用示例</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin: 0;
+            padding: 40px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        .instructions {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: left;
+        }
+        
+        .instructions h3 {
+            margin-bottom: 15px;
+            color: #ffd700;
+        }
+        
+        .instructions ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .instructions li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .instructions li::before {
+            content: "🐾";
+            position: absolute;
+            left: 0;
+        }
+        
+        .code-example {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            margin: 20px 0;
+            text-align: left;
+            overflow-x: auto;
+        }
+        
+        .highlight {
+            background: rgba(255, 215, 0, 0.2);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🐾 Desktop Pet Cat</h1>
+        <p>恭喜！你已经成功集成了桌面宠物猫咪！</p>
+        <p>现在移动你的鼠标，看看可爱的像素猫咪如何跟随你的光标吧！</p>
+        
+        <div class="instructions">
+            <h3>🎮 如何与猫咪互动</h3>
+            <ul>
+                <li><strong>移动鼠标</strong> - 猫咪会跟随你的光标</li>
+                <li><strong>停止移动</strong> - 猫咪会坐下休息</li>
+                <li><strong>等待一会</strong> - 猫咪可能会睡觉或做其他动作</li>
+                <li><strong>移动到边缘</strong> - 猫咪会挠墙</li>
+            </ul>
+        </div>
+        
+        <div class="instructions">
+            <h3>💻 集成到你的网站</h3>
+            <p>要在你的网站中添加这个效果，只需要在HTML页面中添加：</p>
+            <div class="code-example">
+&lt;!-- 在 &lt;/body&gt; 标签前添加 --&gt;
+&lt;script src="oneko.js"&gt;&lt;/script&gt;
+            </div>
+            <p>确保 <span class="highlight">oneko.js</span> 和 <span class="highlight">oneko.gif</span> 文件在同一目录下。</p>
+        </div>
+        
+        <div class="instructions">
+            <h3>🎨 自定义选项</h3>
+            <p>如果文件在不同目录，或想使用自定义猫咪图片：</p>
+            <div class="code-example">
+&lt;script src="path/to/oneko.js" data-cat="path/to/your-cat.gif"&gt;&lt;/script&gt;
+            </div>
+        </div>
+        
+        <p style="margin-top: 40px; font-size: 16px; opacity: 0.7;">
+            这是一个基于开源项目 <a href="https://github.com/adryd325/oneko.js" target="_blank" style="color: #ffd700;">oneko.js</a> 的示例<br>
+            完全免费使用，适用于任何网站！
+        </p>
+    </div>
+
+    <!-- 这里就是关键代码！ -->
+    <script src="oneko.js-main/oneko.js" data-cat="oneko.js-main/oneko.gif"></script>
+</body>
+</html> 

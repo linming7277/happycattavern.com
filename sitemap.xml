@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    
+    <!-- 主页 -->
+    <url>
+        <loc>https://happycattavern.com/</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://happycattavern.com/" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://happycattavern.com/?lang=zh" />
+        <xhtml:link rel="alternate" hreflang="ko" href="https://happycattavern.com/?lang=ko" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://happycattavern.com/?lang=ja" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://happycattavern.com/?lang=fr" />
+    </url>
+    
+    <!-- Neko Atsume 游戏页面 -->
+    <url>
+        <loc>https://happycattavern.com/neko-atsume.html</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://happycattavern.com/neko-atsume.html" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://happycattavern.com/neko-atsume.html?lang=zh" />
+        <xhtml:link rel="alternate" hreflang="ko" href="https://happycattavern.com/neko-atsume.html?lang=ko" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://happycattavern.com/neko-atsume.html?lang=ja" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://happycattavern.com/neko-atsume.html?lang=fr" />
+    </url>
+    
+    <!-- Desktop Pet Cat 页面 -->
+    <url>
+        <loc>https://happycattavern.com/oneko.html</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://happycattavern.com/oneko.html" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://happycattavern.com/oneko.html?lang=zh" />
+        <xhtml:link rel="alternate" hreflang="ko" href="https://happycattavern.com/oneko.html?lang=ko" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://happycattavern.com/oneko.html?lang=ja" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://happycattavern.com/oneko.html?lang=fr" />
+    </url>
+    
+    <!-- Desktop Pet Download 页面 -->
+    <url>
+        <loc>https://happycattavern.com/desktop-pet-download.html</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://happycattavern.com/desktop-pet-download.html" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://happycattavern.com/desktop-pet-download.html?lang=zh" />
+        <xhtml:link rel="alternate" hreflang="ko" href="https://happycattavern.com/desktop-pet-download.html?lang=ko" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://happycattavern.com/desktop-pet-download.html?lang=ja" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://happycattavern.com/desktop-pet-download.html?lang=fr" />
+    </url>
+    
+    <!-- Whack-a-Cat 游戏页面 -->
+    <url>
+        <loc>https://happycattavern.com/whack-a-cat.html</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://happycattavern.com/whack-a-cat.html" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://happycattavern.com/whack-a-cat.html?lang=zh" />
+        <xhtml:link rel="alternate" hreflang="ko" href="https://happycattavern.com/whack-a-cat.html?lang=ko" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://happycattavern.com/whack-a-cat.html?lang=ja" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://happycattavern.com/whack-a-cat.html?lang=fr" />
+    </url>
+    
+    <!-- Hungry Kitty 游戏页面 -->
+    <url>
+        <loc>https://happycattavern.com/hungry-kitty.html</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://happycattavern.com/hungry-kitty.html" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://happycattavern.com/hungry-kitty.html?lang=zh" />
+        <xhtml:link rel="alternate" hreflang="ko" href="https://happycattavern.com/hungry-kitty.html?lang=ko" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://happycattavern.com/hungry-kitty.html?lang=ja" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://happycattavern.com/hungry-kitty.html?lang=fr" />
+    </url>
+    
+    <!-- Kawaii Cat 游戏页面 -->
+    <url>
+        <loc>https://happycattavern.com/kawaii-cat.html</loc>
+        <lastmod>2024-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://happycattavern.com/kawaii-cat.html" />
+        <xhtml:link rel="alternate" hreflang="zh" href="https://happycattavern.com/kawaii-cat.html?lang=zh" />
+        <xhtml:link rel="alternate" hreflang="ko" href="https://happycattavern.com/kawaii-cat.html?lang=ko" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://happycattavern.com/kawaii-cat.html?lang=ja" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://happycattavern.com/kawaii-cat.html?lang=fr" />
+    </url>
+    
+</urlset> 

@@ -1,0 +1,276 @@
+/* 多语言选择器样式 */
+.language-selector {
+    position: relative;
+    margin-left: 20px;
+}
+
+/* Select元素样式优化 */
+.language-selector select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: rgba(255, 255, 255, 0.95);
+    border: 2px solid #e67e22;
+    border-radius: 20px;
+    padding: 8px 35px 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #7b5c3d;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    min-width: 140px;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e67e22' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+}
+
+.language-selector select:hover {
+    background-color: rgba(230, 126, 34, 0.1);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(230, 126, 34, 0.2);
+}
+
+.language-selector select:focus {
+    outline: none;
+    background-color: #e67e22;
+    color: white;
+    box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.3);
+}
+
+.language-selector select option {
+    background: white;
+    color: #7b5c3d;
+    padding: 8px 16px;
+    font-weight: 500;
+}
+
+/* 下拉式语言选择器样式 */
+.lang-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.lang-current {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid #e67e22;
+    border-radius: 20px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    color: #7b5c3d;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.lang-current:hover {
+    background: rgba(230, 126, 34, 0.1);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(230, 126, 34, 0.2);
+}
+
+.lang-dropdown.active .lang-current {
+    background: #e67e22;
+    color: white;
+}
+
+.lang-dropdown.active .lang-arrow {
+    transform: rotate(180deg);
+}
+
+.lang-flag {
+    font-size: 16px;
+    line-height: 1;
+}
+
+.lang-name {
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.lang-arrow {
+    font-size: 10px;
+    transition: transform 0.3s ease;
+    opacity: 0.7;
+}
+
+.lang-options {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border: 2px solid #e67e22;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    min-width: 140px;
+    overflow: hidden;
+}
+
+.lang-dropdown.active .lang-options {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(5px);
+}
+
+.lang-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 12px 16px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 14px;
+    color: #7b5c3d;
+    transition: all 0.2s ease;
+    text-align: left;
+}
+
+.lang-btn:hover {
+    background: rgba(230, 126, 34, 0.1);
+    color: #e67e22;
+}
+
+.lang-btn.active {
+    background: rgba(230, 126, 34, 0.15);
+    color: #e67e22;
+    font-weight: 600;
+}
+
+.lang-btn.active::after {
+    content: '✓';
+    margin-left: auto;
+    color: #e67e22;
+    font-weight: bold;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .language-selector {
+        margin-left: 10px;
+    }
+    
+    .lang-current {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+    
+    .lang-name {
+        display: none;
+    }
+    
+    .lang-flag {
+        font-size: 18px;
+    }
+    
+    .lang-options {
+        right: -10px;
+        min-width: 120px;
+    }
+    
+    .lang-btn {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .language-selector {
+        margin-left: 5px;
+    }
+    
+    .lang-current {
+        padding: 5px 10px;
+        border-radius: 15px;
+    }
+    
+    .lang-arrow {
+        display: none;
+    }
+}
+
+/* 动画效果 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.lang-dropdown.active .lang-options {
+    animation: fadeInUp 0.3s ease;
+}
+
+/* 深色模式支持 */
+@media (prefers-color-scheme: dark) {
+    .lang-current {
+        background: rgba(44, 62, 80, 0.9);
+        border-color: #e67e22;
+        color: #ecf0f1;
+    }
+    
+    .lang-current:hover {
+        background: rgba(230, 126, 34, 0.2);
+    }
+    
+    .lang-options {
+        background: #2c3e50;
+        border-color: #e67e22;
+    }
+    
+    .lang-btn {
+        color: #ecf0f1;
+    }
+    
+    .lang-btn:hover {
+        background: rgba(230, 126, 34, 0.2);
+        color: #e67e22;
+    }
+}
+
+/* 高对比度模式支持 */
+@media (prefers-contrast: high) {
+    .lang-current {
+        border-width: 3px;
+    }
+    
+    .lang-options {
+        border-width: 3px;
+    }
+    
+    .lang-btn:hover {
+        background: #e67e22;
+        color: white;
+    }
+}
+
+/* 减少动画模式支持 */
+@media (prefers-reduced-motion: reduce) {
+    .lang-current,
+    .lang-arrow,
+    .lang-options,
+    .lang-btn {
+        transition: none;
+    }
+    
+    .lang-dropdown.active .lang-options {
+        animation: none;
+    }
+} 

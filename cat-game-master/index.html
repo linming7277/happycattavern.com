@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hungry Kitty</title>
+    <link rel="stylesheet" href="static/styles.css">
+    <link rel="icon" type="image/x-icon" href="icon.png">
+    <link rel="preload" href="index.js" as="script">
+
+</head>
+<body>
+    <div id="game-title">Hungry Kitty</div>
+    <div id="timer-div">Timer: <span id="time">03:00</span></div>
+    <div class="lives-and-score">
+        <div class="space"></div>
+        <div>Score <span id="score">0</span></div>
+        <div id="lives"></div>
+        <div class="space"></div>
+    </div>
+    <main>
+        <div id="game-container">
+            <div class="grid"></div>
+        </div>
+        <div id="button-container">
+            <div class="instructions">Press S to Start</div> <div class="instructions">Press P to Pause</div>
+            <a href="javascript:void(0)" class="eightbit-btn" id="leftbtn">L</a> <a href="javascript:void(0)" class="eightbit-btn" id="rightbtn">R</a>
+        </div>
+        
+        <div id="pause-menu">
+            <h1>Press P to Unpause</h1>
+            <h1>Press R to restart</h1>
+            <div id="kitty-pause">
+                <img src="cat.png" id="pause-sprite">
+            </div>
+        </div>
+    </main>
+    <script src="index.js"></script>
+</body>
+</html>
