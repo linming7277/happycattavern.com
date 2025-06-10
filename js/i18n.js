@@ -1,7 +1,7 @@
 // 多语言国际化系统
 class I18n {
     constructor() {
-        this.currentLang = this.getStoredLanguage() || this.detectBrowserLanguage();
+        this.currentLang = this.getStoredLanguage() || 'en';
         this.translations = {
             'zh': {
                 // 网站SEO相关
